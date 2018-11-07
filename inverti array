@@ -1,0 +1,59 @@
+#include <stdio.h>
+#define MAX 50
+int readV(int A[], int n){
+	int i; 
+	for(i=0; i<n; i++){
+		printf("A[%d]=", i); 
+		scanf("%d", &A[i]); 
+	}
+}
+int printV(int A[], int n){
+	int i; 
+	for(i=0; i<n; i++){
+		printf("A[%d] = %d\n", i, A[i]); 
+	}
+}
+
+
+int inverti(int A[], int B[], int n, int n1){
+	int i, j;
+	j=0;
+	for(i=n; i>=0; i--){
+		B[j]=A[i];
+		j++; 
+	}
+	for(j=0; j<n1; j++){
+		printf("B[%d] = %d\n", j, B[j]); 
+	}
+}
+
+int multiploUtente(int A[], int n, int nU){
+	int i, multiplo;
+	for(i=0; i<n; i++){
+		if(nU*n%2==0){
+			multiplo++; 
+		} else {
+			return 0; 
+		}
+		printf("%d", multiplo); 
+	}
+}
+
+
+
+int main(){
+	int A[MAX];
+	int B[MAX]; 
+	int n, n1, nU; 
+	int multiploU;
+	printf("quanto vuoi lungo l array A?\n");
+	scanf("%d", &n);
+	printf("quanti vuoi lungo l array B?\n");
+	scanf("%d", &n1);
+	readV(A, n);
+	printV(A, n); 
+	inverti(A, B, n, n1); 
+	printf("inserisci numero da cercare\n");
+	scanf("%d", &nU); 
+	multiploUtente(A, n, nU);
+}
